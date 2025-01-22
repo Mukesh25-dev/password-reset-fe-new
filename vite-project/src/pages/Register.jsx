@@ -58,6 +58,7 @@ const Register = () => {
           className="border p-2 rounded"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <Link to="/login">
           <button

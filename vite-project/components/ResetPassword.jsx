@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 const ResetPassword = () => {
@@ -56,7 +56,9 @@ const ResetPassword = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit">Reset Password</button>
+        <Link to="/login">
+          <button type="submit">Reset Password</button>
+        </Link>
       </form>
     </div>
   );
