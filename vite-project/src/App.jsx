@@ -29,6 +29,7 @@ const routes = [
 ];
 
 const router = createBrowserRouter(routes, {
+  caseSensitive: false,
   future: {
     v7_relativeSplatPath: true,
     v7_fetcherPersist: true,
