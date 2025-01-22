@@ -1,19 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import React from "react";
 import instance from "../services/instance";
-import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      toast.error("All fields are required!");
+    if (!name || !email || !password) {
+      alert("All fields are required!");
       return; // Stops navigation
     }
 
@@ -30,6 +31,8 @@ const Register = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+
+    navigate("/login");
   };
   return (
     <div className=" max-w-xs mx-auto p-4 mt-20 border rounded flex flex-col">
@@ -65,14 +68,9 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Link to="/login">
-          <button
-            className="bg-blue-500 text-white py-2 rounded "
-            type="submit"
-          >
-            Register
-          </button>
-        </Link>
+        <button className="bg-blue-500 text-white py-2 rounded " type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
