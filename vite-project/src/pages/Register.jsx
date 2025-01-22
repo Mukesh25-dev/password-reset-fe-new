@@ -12,6 +12,11 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    if (!username || !email || !password) {
+      toast.error("All fields are required!");
+      return; // Stops navigation
+    }
+
     try {
       const response = await instance.post("/register", {
         name,
